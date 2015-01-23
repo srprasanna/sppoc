@@ -2,8 +2,8 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Django default" uuid="6b62a227-7a3c-4a86-8221-2d788a77f9ad">
-      <user-name>root</user-name>
-      <user-password>dfd9dfd8dfda</user-password>
+      <user-name>superplanner</user-name>
+      <user-password>dfd9dfdfdfdadfcfdfd8dfdadfc6dfcbdfc4dfc4dfcfdfd8df9bdf98df99df8b</user-password>
       <schema-pattern>sppoc.*</schema-pattern>
       <default-schemas>sppoc.*</default-schemas>
     </data-source>
