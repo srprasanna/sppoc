@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Django default" uuid="6b62a227-7a3c-4a86-8221-2d788a77f9ad">
+    <database-info product="MySQL" version="5.6.22" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="sppoc"/>
+    <table name="auth_group" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="sppoc" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="sppoc" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="sppoc" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="sppoc" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+      <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="auth_user" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="is_superuser" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="75" scale="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="date_joined" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_e6cbdf29" table="social_auth_usersocialauth" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_89958502" table="venueregistration_favourite" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_7e4479b7" table="venueregistration_otp" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_a7d174f4" table="venueregistration_quote" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_82cb6352" table="venueregistration_recentlyviewed" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="user_id_refs_id_3504fec6" table="venueregistration_userprofile" schema="" catalog="sppoc" columns="user_id"/>
+      <exported-key name="manager_id_refs_id_8d62360b" table="venueregistration_venue" schema="" catalog="sppoc" columns="manager_id"/>
+      <exported-key name="user_id_refs_id_38f5957d" table="venueregistration_venuerating" schema="" catalog="sppoc" columns="user_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
+      <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="app_label" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="sppoc" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="sppoc" columns="content_type_id"/>
+      <index name="app_label" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="django_session" schema="" catalog="sppoc" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
+    </table>
+    <table name="django_site" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="domain" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="social_auth_association" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="server_url" sqlType="VARCHAR" precision="16" scale="0" nullable="false" jdbcType="12"/>
+      <column name="handle" sqlType="VARCHAR" precision="16" scale="0" nullable="false" jdbcType="12"/>
+      <column name="secret" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="issued" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lifetime" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="assoc_type" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="social_auth_association_handle_207fa6ae_uniq" unique="true" columns="handle,server_url"/>
+      <index name="social_auth_association_28e32fb0" unique="false" columns="issued"/>
+    </table>
+    <table name="social_auth_nonce" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="server_url" sqlType="VARCHAR" precision="16" scale="0" nullable="false" jdbcType="12"/>
+      <column name="timestamp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="salt" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="social_auth_nonce_timestamp_10adadb6_uniq" unique="true" columns="timestamp,salt,server_url"/>
+      <index name="social_auth_nonce_d7e6d55b" unique="false" columns="timestamp"/>
+    </table>
+    <table name="social_auth_usersocialauth" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="provider" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="uid" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="extra_data" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_id_refs_id_e6cbdf29" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="social_auth_usersocialauth_provider_1d3b5e05_uniq" unique="true" columns="provider,uid"/>
+      <index name="social_auth_usersocialauth_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="south_migrationhistory" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="migration" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="venueregistration_bookingtimetype" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="time_id_refs_id_df0e7dcc" table="venueregistration_quote" schema="" catalog="sppoc" columns="time_id"/>
+      <exported-key name="booking_time_id_refs_id_d01a8f27" table="venueregistration_venuebookinghistory" schema="" catalog="sppoc" columns="booking_time_id"/>
+    </table>
+    <table name="venueregistration_capacityrange" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="minimum" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="maximum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="display_string" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="guests_id_refs_id_418a9c43" table="venueregistration_quote" schema="" catalog="sppoc" columns="guests_id"/>
+    </table>
+    <table name="venueregistration_city" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="state_id_refs_id_2cad718d" columns="state_id" ref-table="venueregistration_state" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="city_id_refs_id_568bc93b" table="venueregistration_location" schema="" catalog="sppoc" columns="city_id"/>
+      <index name="venueregistration_city_5654bf12" unique="false" columns="state_id"/>
+    </table>
+    <table name="venueregistration_contact" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mobile" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="company" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="venueregistration_country" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="country_id_refs_id_ba40c3f3" table="venueregistration_state" schema="" catalog="sppoc" columns="country_id"/>
+    </table>
+    <table name="venueregistration_customoption" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="venue_id_refs_id_f6458eca" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_customoption_03eb0938" unique="false" columns="venue_id"/>
+    </table>
+    <table name="venueregistration_eventsubtype" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="event_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="event_type_id_refs_id_152853b6" columns="event_type_id" ref-table="venueregistration_eventtype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_eventsubtype_3120f0b2" unique="false" columns="event_type_id"/>
+    </table>
+    <table name="venueregistration_eventtype" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="event_type_id_refs_id_152853b6" table="venueregistration_eventsubtype" schema="" catalog="sppoc" columns="event_type_id"/>
+      <exported-key name="occasion_id_refs_id_2a5ba2bf" table="venueregistration_quote" schema="" catalog="sppoc" columns="occasion_id"/>
+      <exported-key name="eventtype_id_refs_id_0f7fe508" table="venueregistration_venue_event_type" schema="" catalog="sppoc" columns="eventtype_id"/>
+      <exported-key name="event_type_id_refs_id_e6cc97f7" table="venueregistration_venuesupportseventtype" schema="" catalog="sppoc" columns="event_type_id"/>
+    </table>
+    <table name="venueregistration_favourite" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_id_refs_id_89958502" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_748e894d" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_favourite_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_favourite_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="venueregistration_location" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="city_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="city_id_refs_id_568bc93b" columns="city_id" ref-table="venueregistration_city" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="location_id_refs_id_da61a50c" table="venueregistration_venue" schema="" catalog="sppoc" columns="location_id"/>
+      <index name="venueregistration_location_b376980e" unique="false" columns="city_id"/>
+    </table>
+    <table name="venueregistration_mealcategory" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="how_to" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="meal_category_id_refs_id_0e1c334e" table="venueregistration_mealcategoryitem" schema="" catalog="sppoc" columns="meal_category_id"/>
+    </table>
+    <table name="venueregistration_mealcategoryitem" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="meal_category_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="meal_item_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="meal_category_id_refs_id_0e1c334e" columns="meal_category_id" ref-table="venueregistration_mealcategory" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="meal_item_id_refs_id_713453e5" columns="meal_item_id" ref-table="venueregistration_mealitem" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="meal_category_item_id_refs_id_c3846324" table="venueregistration_mealcategoryitemoption" schema="" catalog="sppoc" columns="meal_category_item_id"/>
+      <index name="venueregistration_mealcategoryitem_2a9db707" unique="false" columns="meal_category_id"/>
+      <index name="venueregistration_mealcategoryitem_8713e65b" unique="false" columns="meal_item_id"/>
+    </table>
+    <table name="venueregistration_mealcategoryitemoption" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="meal_category_item_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="meal_option_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="meal_category_item_id_refs_id_c3846324" columns="meal_category_item_id" ref-table="venueregistration_mealcategoryitem" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="meal_option_id_refs_id_d767fb4b" columns="meal_option_id" ref-table="venueregistration_mealoption" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="contents_id_refs_id_9a2c78ee" table="venueregistration_packagecontents" schema="" catalog="sppoc" columns="contents_id"/>
+      <index name="venueregistration_mealcategoryitemoption_0c8f510b" unique="false" columns="meal_category_item_id"/>
+      <index name="venueregistration_mealcategoryitemoption_63f0708e" unique="false" columns="meal_option_id"/>
+    </table>
+    <table name="venueregistration_mealitem" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="meal_item_id_refs_id_713453e5" table="venueregistration_mealcategoryitem" schema="" catalog="sppoc" columns="meal_item_id"/>
+    </table>
+    <table name="venueregistration_mealoption" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="meal_option_id_refs_id_d767fb4b" table="venueregistration_mealcategoryitemoption" schema="" catalog="sppoc" columns="meal_option_id"/>
+    </table>
+    <table name="venueregistration_mealtype" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="meal_type_id_refs_id_be2161fb" table="venueregistration_package" schema="" catalog="sppoc" columns="meal_type_id"/>
+    </table>
+    <table name="venueregistration_otp" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="expiry_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_id_refs_id_7e4479b7" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_otp_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="venueregistration_package" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="custom" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="meal_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="meal_type_id_refs_id_be2161fb" columns="meal_type_id" ref-table="venueregistration_mealtype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="package_id_refs_id_2654ea74" table="venueregistration_packagecontents" schema="" catalog="sppoc" columns="package_id"/>
+      <exported-key name="package_id_refs_id_2cdefd40" table="venueregistration_packagedescription" schema="" catalog="sppoc" columns="package_id"/>
+      <exported-key name="package_id_refs_id_d8885ce7" table="venueregistration_quote" schema="" catalog="sppoc" columns="package_id"/>
+      <index name="venueregistration_package_8fd47e65" unique="false" columns="meal_type_id"/>
+    </table>
+    <table name="venueregistration_packagecontents" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="package_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="contents_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="contents_id_refs_id_9a2c78ee" columns="contents_id" ref-table="venueregistration_mealcategoryitemoption" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="package_id_refs_id_2654ea74" columns="package_id" ref-table="venueregistration_package" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_packagecontents_2c8ef674" unique="false" columns="contents_id"/>
+      <index name="venueregistration_packagecontents_b6411b91" unique="false" columns="package_id"/>
+    </table>
+    <table name="venueregistration_packagedescription" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="package_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="display_order" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="package_id_refs_id_2cdefd40" columns="package_id" ref-table="venueregistration_package" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_packagedescription_b6411b91" unique="false" columns="package_id"/>
+    </table>
+    <table name="venueregistration_quote" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="package_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="quote_key" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="guests_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="venuetype_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="occasion_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="date_of_booking" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="status" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="guests_id_refs_id_418a9c43" columns="guests_id" ref-table="venueregistration_capacityrange" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="occasion_id_refs_id_2a5ba2bf" columns="occasion_id" ref-table="venueregistration_eventtype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="package_id_refs_id_d8885ce7" columns="package_id" ref-table="venueregistration_package" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="time_id_refs_id_df0e7dcc" columns="time_id" ref-table="venueregistration_bookingtimetype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_a7d174f4" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venuetype_id_refs_id_e63ac2d9" columns="venuetype_id" ref-table="venueregistration_venuetype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="quote_id_refs_id_163f965b" table="venueregistration_quotevenue" schema="" catalog="sppoc" columns="quote_id"/>
+      <index name="venueregistration_quote_1b0038fb" unique="false" columns="venuetype_id"/>
+      <index name="venueregistration_quote_6340c63c" unique="false" columns="user_id"/>
+      <index name="venueregistration_quote_7a282436" unique="false" columns="occasion_id"/>
+      <index name="venueregistration_quote_7f12bbd9" unique="false" columns="time_id"/>
+      <index name="venueregistration_quote_b6411b91" unique="false" columns="package_id"/>
+      <index name="venueregistration_quote_cba0ea91" unique="false" columns="guests_id"/>
+    </table>
+    <table name="venueregistration_quotevenue" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="quote_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="quote_id_refs_id_163f965b" columns="quote_id" ref-table="venueregistration_quote" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_e8486845" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_quotevenue_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_quotevenue_d4162e45" unique="false" columns="quote_id"/>
+    </table>
+    <table name="venueregistration_recentlyviewed" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_id_refs_id_82cb6352" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_535bbe5a" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_recentlyviewed_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_recentlyviewed_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="venueregistration_relatedvenues" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="related_venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="related_venue_id_refs_id_9ddd4e33" columns="related_venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_9ddd4e33" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_relatedvenues_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_relatedvenues_9fe88f48" unique="false" columns="related_venue_id"/>
+    </table>
+    <table name="venueregistration_seatingoption" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="venueregistration_state" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="country_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="country_id_refs_id_ba40c3f3" columns="country_id" ref-table="venueregistration_country" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="state_id_refs_id_2cad718d" table="venueregistration_city" schema="" catalog="sppoc" columns="state_id"/>
+      <index name="venueregistration_state_d860be3c" unique="false" columns="country_id"/>
+    </table>
+    <table name="venueregistration_suggestvenue" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="venue" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="location" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="venueregistration_userprofile" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="company" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mobile_number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_verified" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_id_refs_id_3504fec6" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="venueregistration_venue" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="manager_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="location_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="VARCHAR" precision="128" scale="0" nullable="true" jdbcType="12"/>
+      <column name="venue_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="capacity" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="minimum_occupancy" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="last_modified_at" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="rating" sqlType="DECIMAL" precision="2" scale="1" nullable="false" jdbcType="3"/>
+      <column name="is_pure_veg" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="serves_liquor" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="base_package_rate" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3"/>
+      <column name="address1" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address2" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address3" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lead_text" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="extra_content" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="lighting" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="music" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="service" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="cost_per_head" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3"/>
+      <column name="review_count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lattitude" sqlType="DECIMAL" precision="10" scale="5" nullable="false" jdbcType="3"/>
+      <column name="longitude" sqlType="DECIMAL" precision="10" scale="5" nullable="false" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="location_id_refs_id_da61a50c" columns="location_id" ref-table="venueregistration_location" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="manager_id_refs_id_8d62360b" columns="manager_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_type_id_refs_id_86212241" columns="venue_type_id" ref-table="venueregistration_venuetype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="venue_id_refs_id_f6458eca" table="venueregistration_customoption" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_748e894d" table="venueregistration_favourite" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_e8486845" table="venueregistration_quotevenue" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_535bbe5a" table="venueregistration_recentlyviewed" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="related_venue_id_refs_id_9ddd4e33" table="venueregistration_relatedvenues" schema="" catalog="sppoc" columns="related_venue_id"/>
+      <exported-key name="venue_id_refs_id_9ddd4e33" table="venueregistration_relatedvenues" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_b3789c43" table="venueregistration_venue_event_type" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_da5937c6" table="venueregistration_venuebookinghistory" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_eed05020" table="venueregistration_venuepicture" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_934477df" table="venueregistration_venuerating" schema="" catalog="sppoc" columns="venue_id"/>
+      <exported-key name="venue_id_refs_id_a2f34a24" table="venueregistration_venuesupportseventtype" schema="" catalog="sppoc" columns="venue_id"/>
+      <index name="venueregistration_venue_68afd4a7" unique="false" columns="manager_id"/>
+      <index name="venueregistration_venue_afbb987d" unique="false" columns="location_id"/>
+      <index name="venueregistration_venue_e78989b2" unique="false" columns="venue_type_id"/>
+    </table>
+    <table name="venueregistration_venue_event_type" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="eventtype_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="eventtype_id_refs_id_0f7fe508" columns="eventtype_id" ref-table="venueregistration_eventtype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_b3789c43" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_venue_event_type_venue_id_1656c7fd_uniq" unique="true" columns="venue_id,eventtype_id"/>
+      <index name="venueregistration_venue_event_type_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_venue_event_type_7a4f8c6c" unique="false" columns="eventtype_id"/>
+    </table>
+    <table name="venueregistration_venuebookinghistory" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="booking_time_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="booking_time_id_refs_id_d01a8f27" columns="booking_time_id" ref-table="venueregistration_bookingtimetype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_da5937c6" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_venuebookinghistory_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_venuebookinghistory_cf053dbb" unique="false" columns="booking_time_id"/>
+    </table>
+    <table name="venueregistration_venuepicture" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="image" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="displayable" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="is_display_pic" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="venue_id_refs_id_eed05020" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_venuepicture_03eb0938" unique="false" columns="venue_id"/>
+    </table>
+    <table name="venueregistration_venuerating" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rating" sqlType="DECIMAL" precision="2" scale="1" nullable="false" jdbcType="3"/>
+      <column name="review" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="user_id_refs_id_38f5957d" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_934477df" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_venuerating_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_venuerating_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="venueregistration_venuesupportseventtype" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="venue_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="event_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="evnet_subtype_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="event_type_id_refs_id_e6cc97f7" columns="event_type_id" ref-table="venueregistration_eventtype" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venue_id_refs_id_a2f34a24" columns="venue_id" ref-table="venueregistration_venue" ref-schema="" ref-catalog="sppoc" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="venueregistration_venuesupportseventtype_03eb0938" unique="false" columns="venue_id"/>
+      <index name="venueregistration_venuesupportseventtype_3120f0b2" unique="false" columns="event_type_id"/>
+    </table>
+    <table name="venueregistration_venuetype" schema="" catalog="sppoc" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="venuetype_id_refs_id_e63ac2d9" table="venueregistration_quote" schema="" catalog="sppoc" columns="venuetype_id"/>
+      <exported-key name="venue_type_id_refs_id_86212241" table="venueregistration_venue" schema="" catalog="sppoc" columns="venue_type_id"/>
+    </table>
+  </data-source>
+</component>
