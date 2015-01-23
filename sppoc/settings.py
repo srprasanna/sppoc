@@ -68,7 +68,7 @@ WSGI_APPLICATION = 'sppoc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sppoc',
+        'NAME': 'superplanner1',
         'USER': 'superplanner',
         'PASSWORD': 'superplanner123!',
         'HOST': 'superplanner-dev.c2jlcsvmesjb.us-east-1.rds.amazonaws.com',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
